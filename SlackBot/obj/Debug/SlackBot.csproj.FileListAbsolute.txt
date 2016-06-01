@@ -1,0 +1,6 @@
+C:\C#\SlackBot\SlackBot\obj\Debug\SlackBot.csprojResolveAssemblyReference.cache
+C:\C#\SlackBot\SlackBot\bin\Debug\SlackBot.exe.config
+C:\C#\SlackBot\SlackBot\bin\Debug\SlackBot.exe
+C:\C#\SlackBot\SlackBot\bin\Debug\SlackBot.pdb
+C:\C#\SlackBot\SlackBot\obj\Debug\SlackBot.exe
+C:\C#\SlackBot\SlackBot\obj\Debug\SlackBot.pdb
