@@ -8,6 +8,9 @@ using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
+using System.Runtime.InteropServices;
+using Microsoft.VisualBasic;
+using MSScriptControl;
 
 namespace SlackBot
 {
@@ -60,15 +63,29 @@ namespace SlackBot
 			}
 			catch(ThreadInterruptedException)
 			{
-				process.Kill();
-	            Process ghc = Process.GetProcessesByName("ghc")[0];
-	            ghc.Kill();
-				return new string[] { "실행이 너무 오래 걸립니다." };
+				try
+				{
+					process.Kill();
+		            Process ghc = Process.GetProcessesByName("ghc")[0];
+		            ghc.Kill();
+					return new string[] { "실행이 너무 오래 걸립니다." };
+				}
+				catch
+				{
+					return new string[] { "실행이 너무 오래 걸립니다." };
+				}
 			}
 			finally
 			{
 				process.Dispose();
 			}
         }
+		
+		public static string Calc(string code)
+		{
+			MSScriptControl.ScriptControl sc = new MSScriptControl.ScriptControl();
+			sc.Language = "VBScript";
+			return sc.Eval(code).ToString();
+		}
 	}
 }

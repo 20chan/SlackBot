@@ -29,6 +29,9 @@ namespace SlackBot
         private string _channel;
         private string _password;
         
+        public string Server { get { return _server; }}
+        public string Nickname { get { return _nick; }}
+        
         public string Channel { get { return _channel; }}
 		
         public event Action<bool> Connected;
@@ -81,6 +84,11 @@ namespace SlackBot
 		
 		public void SendMessage(string channel, string message)
 		{
+			if(message.Length >= 480)
+			{
+				this.SendData("PRIVMSG " + channel + " : 문자열의 길이가 너무 깁니다.");
+				return;
+			}
 			this.SendData("PRIVMSG " + channel + " :" + message);
 		}
 		

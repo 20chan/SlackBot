@@ -21,12 +21,15 @@ namespace SlackBot
 		
 		private Dictionary<string, string> _table;
 		
-		public List<string> AdminList { get { return _adminList; } set { _adminList = value; }}
-		public List<string> BanList { get { return _banList; } set { _banList = value; }}
+		public List<string> AdminList { get { return _adminList; } set { _adminList = value; if(AdminChanged != null) AdminChanged(_adminList); }}
+		public List<string> BanList { get { return _banList; } set { _banList = value; if(BanChanged != null) BanChanged(_banList); }}
+		
+		public event Action<List<string>> AdminChanged;
+		public event Action<List<string>> BanChanged;
 		
 		public Data()
 		{
-			_adminList = new List<string>();
+			_adminList = new List<string>() { "yeongchan" };
 			_banList = new List<string>();
 			_table = new Dictionary<string, string>();
 		}
