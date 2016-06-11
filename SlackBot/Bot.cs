@@ -5,6 +5,7 @@
  */
 using System;
 using System.Collections.Generic;
+using ChatBot;
 
 namespace SlackBot
 {
@@ -22,9 +23,11 @@ namespace SlackBot
 		
 		public string Nickname { get { return _slack.Nickname; }}
 		
-		public SlackBot(string server, string channel, string nick, string password)
+		private CBR ai_bot = new CBR();
+		
+		public SlackBot(string server, string nick, string channel, string password)
 		{
-			this._slack = new Slack(server, channel, nick, password);
+			this._slack = new Slack(server, nick, channel, password);
 			this._data = new Data();
 			
 			_slack.Connected += (b) => { SendMessages( _slack.Channel, new string[] { "> 코딩노예 봇 시작!", "> 사용법은 !help 을 입력해보세요!" }); };
@@ -68,7 +71,7 @@ namespace SlackBot
 				};
 				SendMessages(channel, help);
 			}
-			else if(command == "command" || command == "cmd" || command == "명령어")
+			else if(command == "commands" || command == "cmd" || command == "명령어")
 			{
 				string[] commands = new string[] {
 					"!help !도움말 : 도움말을 보여줍니다.",
@@ -78,6 +81,8 @@ namespace SlackBot
 					"!weather {지역} !날씨 {지역} : 날씨를 기상청에서 파싱해서 보여줍니다.",
 					"!저장 {키} {값} : 키에 값을 저장합니다.",
 					"!불러 {키} : 키에 저장된 값을 보여줍니다.",
+					"!학습 {질문} | {응답} : 인공지능 봇에 학습을 시킵니다.",
+					"!봇 {질문} : 봇에게 말을 겁니다."
 				};
 				SendMessages(channel, commands);
 			}
@@ -135,7 +140,23 @@ namespace SlackBot
 			{
 				SendMessage(channel, Interpreter.Calc(message));
 			}
-		
+			else if(command == "학습")
+			{
+				try
+				{
+					string[] sp = message.Split('|');
+					ai_bot.AddConversation(sp[0], sp[1]);
+					SendMessage(channel, "성공적으로 학습시켰습니다.");
+				}
+				catch
+				{
+					SendMessage(channel, "잘못된 사용법입니다.");
+				}
+			}
+			else if(command == "봇")
+			{
+				SendMessage(channel, "봇 : " + ai_bot.Eval(message));
+			}
 		}
 		
 		public void SendMessage(string channel, string message)
@@ -180,6 +201,16 @@ namespace SlackBot
 		{
 			_data.BanList.Remove(id);
 			BanChanged(BanList);
+		}
+		
+		public void SaveAIBot(string path)
+		{
+			ai_bot.SaveTable(path);
+		}
+		
+		public void LoadAIBot(string path)
+		{
+			ai_bot.LoadTable(path);
 		}
 	}
 }
