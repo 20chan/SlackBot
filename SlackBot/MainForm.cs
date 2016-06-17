@@ -12,13 +12,18 @@ using System.Windows.Forms;
 namespace SlackBot
 {
 	public partial class MainForm : Form
-	{
-		SlackBot bot;
+    {
+        string server;
+        string nick;
+        string channel;
+        string password;
+
+        SlackBot bot;
 		public MainForm()
 		{
 			CheckForIllegalCrossThreadCalls = false;
 			InitializeComponent();
-			bot = new SlackBot("maboojjang.irc.slack.com", "codingslave", "#general", "maboojjang.VLRj0y3mcO9a9xGDjrvl");
+			bot = new SlackBot(server, nick, channel, password);
 			bot.GotMessage += bot_GotMessage;
 			bot.AdminChanged += bot_AdminChanged;
 			bot.BanChanged += bot_BanChanged;

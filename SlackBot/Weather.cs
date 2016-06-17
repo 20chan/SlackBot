@@ -23,7 +23,7 @@ namespace SlackBot
 			{"부산", new Point(93, 73)},
 			{"대구", new Point(88, 90)},
 			{"인천", new Point(51, 131)},
-			{"전남", new Point(51, 131)},
+			{"전남", new Point(57, 63)},
 			{"제주", new Point(56, 33)},
 			{"충남", new Point(65, 99)},
 			{"충북", new Point(76, 111)},
