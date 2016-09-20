@@ -1,8 +1,11 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-# SharpDevelop 5.1
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlackBot", "SlackBot\SlackBot.csproj", "{C90B287A-042E-4BD8-AD8F-7C1F5FD38366}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlackAPI", "SlackAPI\SlackAPI.csproj", "{12330B90-CF6A-4CCC-A662-6C10702D1AEF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,5 +17,12 @@ Global
 		{C90B287A-042E-4BD8-AD8F-7C1F5FD38366}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C90B287A-042E-4BD8-AD8F-7C1F5FD38366}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C90B287A-042E-4BD8-AD8F-7C1F5FD38366}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12330B90-CF6A-4CCC-A662-6C10702D1AEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12330B90-CF6A-4CCC-A662-6C10702D1AEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12330B90-CF6A-4CCC-A662-6C10702D1AEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12330B90-CF6A-4CCC-A662-6C10702D1AEF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal

@@ -14,5 +14,5 @@ D:\C#\SlackBot\SlackBot\bin\Debug\SlackBot.exe
 D:\C#\SlackBot\SlackBot\bin\Debug\SlackBot.pdb
 D:\C#\SlackBot\SlackBot\bin\Debug\Interop.MSScriptControl.dll
 D:\C#\SlackBot\SlackBot\obj\Debug\SlackBot.csprojResolveAssemblyReference.cache
-D:\C#\SlackBot\SlackBot\obj\Debug\SlackBot.MainForm.resources
-D:\C#\SlackBot\SlackBot\obj\Debug\SlackBot.csproj.GenerateResource.Cache
+D:\C#\SlackBot\SlackBot\bin\Debug\SlackAPI.dll
+D:\C#\SlackBot\SlackBot\bin\Debug\SlackAPI.pdb

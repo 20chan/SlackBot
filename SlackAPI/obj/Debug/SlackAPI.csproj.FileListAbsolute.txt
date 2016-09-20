@@ -1,0 +1,5 @@
+D:\C#\SlackBot\SlackAPI\bin\Debug\SlackAPI.dll
+D:\C#\SlackBot\SlackAPI\bin\Debug\SlackAPI.pdb
+D:\C#\SlackBot\SlackAPI\obj\Debug\SlackAPI.csprojResolveAssemblyReference.cache
+D:\C#\SlackBot\SlackAPI\obj\Debug\SlackAPI.dll
+D:\C#\SlackBot\SlackAPI\obj\Debug\SlackAPI.pdb
