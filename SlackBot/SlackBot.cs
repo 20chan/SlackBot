@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
-using SlackAPI;
+using Slack.SlackAPI;
 
-namespace SlackBot
+namespace Slack.SlackBot
 {
     public class SlackBot
     {
-        public SlackBot(Slack slack)
+        public SlackBot(SlackClient slack)
         {
             slack.GotMessage += Slack_GotMessage;
         }

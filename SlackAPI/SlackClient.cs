@@ -5,10 +5,10 @@ using System.Net.Sockets;
 using System.Threading;
 using System.Security.Cryptography.X509Certificates;
 
-namespace SlackAPI
+namespace Slack.SlackAPI
 {
     public delegate void MessageCallback(string channel, string nickname, string message);
-    public class Slack
+    public class SlackClient
     {
         private ManualResetEvent _updatePauseEvent = new ManualResetEvent(false);
         private NetworkStream _netStream;
@@ -32,7 +32,7 @@ namespace SlackAPI
         public event Action<string> GotData;
 
         private Thread _updateThread;
-        public Slack(string server, string nick, string password, string channel = "#general")
+        public SlackClient(string server, string nick, string password, string channel = "#general")
         {
             this._port = 6667;
             this._sock = new TcpClient();
@@ -50,7 +50,7 @@ namespace SlackAPI
             }
 
             _netStream = this._sock.GetStream();
-            _ssl = new SslStream(_netStream, false, new RemoteCertificateValidationCallback(Slack.ValidateCert));
+            _ssl = new SslStream(_netStream, false, new RemoteCertificateValidationCallback(SlackClient.ValidateCert));
             _ssl.AuthenticateAsClient("Slack");
 
             _output = new StreamWriter(_ssl);
@@ -63,7 +63,7 @@ namespace SlackAPI
                 IsBackground = true
             };
         }
-        ~Slack()
+        ~SlackClient()
         {
             _updateThread.Abort();
         }
