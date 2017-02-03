@@ -1,31 +1,36 @@
-﻿#region Using directives
-
-using System;
-using System.Reflection;
+﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-#endregion
-
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
+// 어셈블리에 대한 일반 정보는 다음 특성 집합을 통해 
+// 제어됩니다. 어셈블리와 관련된 정보를 수정하려면
+// 이러한 특성 값을 변경하세요.
 [assembly: AssemblyTitle("SlackBot")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("SlackBot")]
-[assembly: AssemblyCopyright("Copyright 2016")]
+[assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-// This sets the default COM visibility of types in the assembly to invisible.
-// If you need to expose a type to COM, use [ComVisible(true)] on that type.
+// ComVisible을 false로 설정하면 이 어셈블리의 형식이 COM 구성 요소에 
+// 표시되지 않습니다. COM에서 이 어셈블리의 형식에 액세스하려면
+// 해당 형식에 대해 ComVisible 특성을 true로 설정하세요.
 [assembly: ComVisible(false)]
 
-// The assembly version has following format :
+// 이 프로젝트가 COM에 노출되는 경우 다음 GUID는 typelib의 ID를 나타냅니다.
+[assembly: Guid("1ce17439-4a76-4745-b50a-f21b92198ced")]
+
+// 어셈블리의 버전 정보는 다음 네 가지 값으로 구성됩니다.
 //
-// Major.Minor.Build.Revision
+//      주 버전
+//      부 버전 
+//      빌드 번호
+//      수정 버전
 //
-// You can specify all the values or you can use the default the Revision and 
-// Build Numbers by using the '*' as shown below:
-[assembly: AssemblyVersion("1.0.*")]
+// 모든 값을 지정하거나 아래와 같이 '*'를 사용하여 빌드 번호 및 수정 번호가 자동으로
+//아래 표시된 것처럼 '*'를 사용:
+// [assembly: AssemblyVersion("1.0.*")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]

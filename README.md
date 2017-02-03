@@ -1,5 +1,12 @@
 # Slack API
->Slack API using ssl connection to irc
+>Minimal Slack API using ssl connection to irc
+
+최소한의 기능만 있는 SlackAPI
 
 
-SSL 연결을 지원하는 슬랙 봇입니다. 별 쓸데 없는 기능만 모여있으니까 알아서 수정해서 쓰세요.
+
+# Slack Bot
+
+> Simple SlackBot Framework using Slack API
+
+Slack API를 사용하여 만든 간단한 Slack Bot 프레임워크

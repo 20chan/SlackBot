@@ -1,70 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
-    <ProjectGuid>{C90B287A-042E-4BD8-AD8F-7C1F5FD38366}</ProjectGuid>
-    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{1CE17439-4A76-4745-B50A-F21B92198CED}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SlackBot</RootNamespace>
     <AssemblyName>SlackBot</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <TargetFrameworkProfile />
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
-    <PlatformTarget>x86</PlatformTarget>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DebugSymbols>True</DebugSymbols>
-    <DebugType>Full</DebugType>
-    <Optimize>False</Optimize>
-    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DebugSymbols>False</DebugSymbols>
-    <DebugType>None</DebugType>
-    <Optimize>True</Optimize>
-    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
     <DefineConstants>TRACE</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Interop.MSScriptControl">
-      <HintPath>Interop.MSScriptControl.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.CSharp">
-      <RequiredTargetFramework>4.0</RequiredTargetFramework>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Core">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.DataSetExtensions">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Web.Extensions">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="System.Xml.Linq">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="SlackBot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SlackAPI\SlackAPI.csproj">

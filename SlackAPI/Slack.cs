@@ -24,8 +24,8 @@ namespace SlackAPI
         private string _channel;
         private string _password;
 
-        public string Server { get { return _server; } }
-        public string Nickname { get { return _nick; } }
+        public string Server => _server;
+        public string Nickname => _nick;
 
         public event Action<bool> Connected;
         public event MessageCallback GotMessage;
@@ -58,8 +58,10 @@ namespace SlackAPI
             SendData("PASS " + _password);
             SendData("NICK " + _nick);
 
-            _updateThread = new Thread(new ThreadStart(this.UpdateMessage));
-            _updateThread.IsBackground = true;
+            _updateThread = new Thread(new ThreadStart(UpdateMessage))
+            {
+                IsBackground = true
+            };
         }
         ~Slack()
         {
@@ -133,8 +135,7 @@ namespace SlackAPI
         {
             if (message.Length >= 480)
             {
-                this.SendData("PRIVMSG " + channel + " : 문자열의 길이가 너무 깁니다.");
-                return;
+                throw new IndexOutOfRangeException("문자열의 길이는 480자 미만이어야 합니다.");
             }
             this.SendData("PRIVMSG " + channel + " :" + message);
         }
