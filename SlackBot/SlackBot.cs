@@ -7,9 +7,26 @@ namespace Slack.SlackBot
 {
     public class SlackBot
     {
+        private struct MentionCallback
+        {
+            public Type Type;
+            public MethodInfo Method;
+            public string ID;
+        }
+
+        private MentionCallback[] _userMentionedCallback;
         public SlackBot(SlackClient slack)
         {
             slack.GotMessage += Slack_GotMessage;
+        }
+
+        public void BindCallback()
+        {
+            _userMentionedCallback = (from assembly in AppDomain.CurrentDomain.GetAssemblies()
+                                     from type in assembly.GetTypes()
+                                     from method in type.GetMethods()
+                                     where method.IsDefined(typeof(UserMentioned))
+                                     select new MentionCallback { Type = type, Method = method, ID = method.GetCustomAttribute<UserMentioned>().ID }).ToArray();
         }
 
         private void Slack_GotMessage(string channel, string nickname, string message)
@@ -17,13 +34,7 @@ namespace Slack.SlackBot
             var mentioned = Parser.GetMentionedIDs(message);
             if (mentioned.Length > 0)
             {
-                var usermentioned = from assembly in AppDomain.CurrentDomain.GetAssemblies()
-                                    from type in assembly.GetTypes()
-                                    from method in type.GetMethods()
-                                    where method.IsDefined(typeof(UserMentioned))
-                                    select new { Type = type, Method = method, ID = method.GetCustomAttribute<UserMentioned>().ID };
-
-                foreach (var m in usermentioned)
+                foreach (var m in _userMentionedCallback)
                 {
                     if (!mentioned.Contains(m.ID))
                         continue;

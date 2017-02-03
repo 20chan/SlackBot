@@ -1,0 +1,11 @@
+D:\C#\SlackBot\SlackBot.Test\bin\Debug\gateways.txt
+D:\C#\SlackBot\SlackBot.Test\bin\Debug\SlackBot.Test.exe.config
+D:\C#\SlackBot\SlackBot.Test\bin\Debug\SlackBot.Test.exe
+D:\C#\SlackBot\SlackBot.Test\bin\Debug\SlackBot.Test.pdb
+D:\C#\SlackBot\SlackBot.Test\bin\Debug\SlackAPI.dll
+D:\C#\SlackBot\SlackBot.Test\bin\Debug\SlackBot.dll
+D:\C#\SlackBot\SlackBot.Test\bin\Debug\SlackAPI.pdb
+D:\C#\SlackBot\SlackBot.Test\bin\Debug\SlackBot.pdb
+D:\C#\SlackBot\SlackBot.Test\obj\Debug\SlackBot.Test.csprojResolveAssemblyReference.cache
+D:\C#\SlackBot\SlackBot.Test\obj\Debug\SlackBot.Test.exe
+D:\C#\SlackBot\SlackBot.Test\obj\Debug\SlackBot.Test.pdb

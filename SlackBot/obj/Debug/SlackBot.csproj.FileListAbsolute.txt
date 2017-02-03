@@ -5,3 +5,4 @@ D:\C#\SlackBot\SlackBot\bin\Debug\SlackAPI.pdb
 D:\C#\SlackBot\SlackBot\obj\Debug\SlackBot.csprojResolveAssemblyReference.cache
 D:\C#\SlackBot\SlackBot\obj\Debug\SlackBot.dll
 D:\C#\SlackBot\SlackBot\obj\Debug\SlackBot.pdb
+D:\C#\SlackBot\SlackBot\bin\Debug\gateways.txt
